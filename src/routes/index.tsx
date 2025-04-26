@@ -6,7 +6,7 @@ const NotFound = React.lazy(() => import('@/pages/400/NotFound'))
 const Signup = React.lazy(() => import('@/pages/auth/signup/Signup'))
 const Home = React.lazy(() => import('@/pages/home/Home'))
 
-const PagesRouter: React.FC<{}> = () => {
+const PagesRouter: React.FC = () => {
 
     return (
         <BrowserRouter>

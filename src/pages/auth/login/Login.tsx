@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { signIn } from '@/services/auth'
 import { yupResolver } from "@hookform/resolvers/yup"
 import React, { useState } from 'react'
@@ -91,6 +92,8 @@ const Login: React.FC = () => {
                         {loading ? <BiLoaderAlt className='animate-spin ' size={25} /> : "Submit"}
                     </button>
                 </form>
+
+                <p className={`text-[12px] text-[#212121]`}>If you don't have account <span className={`text-blue-500 cursor-pointer`} onClick={() => window.location.replace("/auth/signup")}>click here to sign up</span></p>
             </div>
         </div>
     )

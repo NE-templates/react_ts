@@ -32,6 +32,7 @@ const userSlice = createSlice({
                 ...initialState.user
             }
             state.token = ""
+            localStorage.removeItem("token")
             window.location.replace("/auth/login");
         }
     }

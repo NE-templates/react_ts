@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import api from "@/api";
 import { login } from "@/redux/slices/userReducer";
 import React from "react";
@@ -22,6 +23,22 @@ export const signIn = async ({ dispatch, setLoading, email, password }: {
         }, 1000);
     } catch (error: any) {
         error?.response?.data?.message ? toast.error(error.response.data.message) : toast.error("Error loggin you in")
+    } finally {
+        setLoading(false)
+    }
+}
+
+export const signUp = async ({setLoading, email, password, names, telephone } : {setLoading: React.Dispatch<React.SetStateAction<boolean>>, email: string, password: string, names: string, telephone: string}) => {
+    try {
+        setLoading(true)
+        const url = "/user/create";
+        await api.post(url, {email, password, names, telephone})
+        toast.success("Signup successful")
+        setTimeout(() => {
+            window.location.replace("/auth/login")
+        }, 1000);
+    } catch (error: any) {
+        error?.response?.data?.message ? toast.error(error.response.data.message) : toast.error("Error signing you up")
     } finally {
         setLoading(false)
     }
