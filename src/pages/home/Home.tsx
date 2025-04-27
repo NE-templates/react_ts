@@ -1,3 +1,4 @@
+import Table from "@/components/home/Table";
 import Sidebar from "@/components/Sidebar";
 import { CommonContext } from "@/context";
 import React, { useContext } from "react";
@@ -21,7 +22,9 @@ const Home: React.FC = () => {
       </Helmet>
       <div className="w-10/12 flex flex-col px-14 pt-8">
         <span className="text-lg font-semibold">Welcome {user.names}</span>
-        <div className="my-14"></div>
+        <div className="my-14 w-full">
+            <Table />
+        </div>
       </div>
     </div>
   );
